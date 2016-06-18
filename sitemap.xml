@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ipingguo.cc/2015/03/22/tech-blogs/</loc>
+    <loc>http://ipingguo.cc/2010/10/01/hello-world/</loc>
     
-    <lastmod>2016-06-18T15:07:50.128Z</lastmod>
+    <lastmod>2016-06-18T15:56:31.056Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ipingguo.cc/2010/10/01/hello-world/</loc>
+    <loc>http://ipingguo.cc/2016/06/18/images/</loc>
     
-    <lastmod>2016-06-18T15:06:44.882Z</lastmod>
+    <lastmod>2016-06-18T15:54:45.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ipingguo.cc/2014/11/18/gallery-post/</loc>
+    
+    <lastmod>2016-06-18T15:54:15.044Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ipingguo.cc/2016/06/18/tech-blogs/</loc>
+    
+    <lastmod>2016-06-18T15:49:32.640Z</lastmod>
     
   </url>
   
@@ -19,41 +33,6 @@
     <loc>http://ipingguo.cc/about/index.html</loc>
     
     <lastmod>2016-06-18T08:18:37.942Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2016/06/17/how-to-use-jacman/</loc>
-    
-    <lastmod>2016-06-18T05:58:30.006Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2016/06/18/images/</loc>
-    
-    <lastmod>2016-06-18T05:34:29.663Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2016/05/22/install-MongoDB-in-win7-os-x64/</loc>
-    
-    <lastmod>2016-06-18T05:09:06.904Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2016/04/05/how-to-use-mathjax/</loc>
-    
-    <lastmod>2016-06-18T05:08:51.748Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2014/11/18/gallery-post/</loc>
-    
-    <lastmod>2016-06-18T05:08:38.615Z</lastmod>
     
   </url>
   
