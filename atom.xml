@@ -379,9 +379,9 @@ MathJax.Hub.Config({
       <category term="杂" scheme="http://ipingguo.cc/categories/%E6%9D%82/"/>
     
     
-      <category term="留学" scheme="http://ipingguo.cc/tags/%E7%95%99%E5%AD%A6/"/>
-    
       <category term="梦想" scheme="http://ipingguo.cc/tags/%E6%A2%A6%E6%83%B3/"/>
+    
+      <category term="留学" scheme="http://ipingguo.cc/tags/%E7%95%99%E5%AD%A6/"/>
     
   </entry>
   
@@ -672,9 +672,9 @@ MathJax.Hub.Config({
       <category term="杂" scheme="http://ipingguo.cc/categories/%E6%9D%82/"/>
     
     
-      <category term="梦想" scheme="http://ipingguo.cc/tags/%E6%A2%A6%E6%83%B3/"/>
-    
       <category term="出国" scheme="http://ipingguo.cc/tags/%E5%87%BA%E5%9B%BD/"/>
+    
+      <category term="梦想" scheme="http://ipingguo.cc/tags/%E6%A2%A6%E6%83%B3/"/>
     
   </entry>
   
