@@ -1,5 +1,7 @@
 ---
-title: Images
+title: Photo
+categories: Photo
+tags: Photo
 ---
 
 This is a image post.

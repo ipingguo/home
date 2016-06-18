@@ -35,7 +35,12 @@ function root_for(path){
 					<form class="search" action="<%- config.root %>search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
 						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="<%= __('search') %>" />
-					</form>
+					</form>	
+					<% }else if	(theme.swift_search&&theme.swift_search.enable){ %>
+						<form class="search">
+						<label>Search</label>
+						<input type="search" id="search" class="st-default-search-input" name="q" autocomplete="off" maxlength="20" placeholder="<%= __('search') %>" />
+						</form>
 					<% } else if(theme.baidu_search.enable){ %>
 						<form class="search" action="<%- theme.baidu_search.site %>" target="_blank">
 							<label>Search</label>

@@ -78,8 +78,8 @@ toc:
 #### Links
 links:
   ImportNew: http://www.importnew.com/,专注于Java技术分享
-
-
+  开发者头条: http://toutiao.io/,程序员的首选学习分享平台
+  小众软件: http://www.appinn.com/,分享免费小巧实用有趣绿色的软件
 
 #### Comment
 duoshuo_shortname: ipingguo
@@ -129,3 +129,6 @@ baidu_search:     ## http://zn.baidu.com/
 tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
+
+swift_search:
+  enable: true
