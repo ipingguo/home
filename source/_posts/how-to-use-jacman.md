@@ -1,27 +1,26 @@
 ---
 layout: post
 title: 如何使用 Jacman 主题
-date: 2014-11-20 09:58:17
 tags:
 - Hexo
 - Jacman
 categories: Hexo
 description: Jacman 是一款扁平化，有着响应式设计的 Hexo 主题。本站正式使用了 Jacman 主题。Jacman 基于 Pacman 主题修改而来，而今已有很多特性与原主题不同。你可以前往本站和 Demo 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 issue。
 ---
-##主题介绍
+## 主题介绍
 [Jacman](https://github.com/wuchong/jacman) 是一款扁平化，有着响应式设计的 [Hexo](http://http://hexo.io/) 主题。本站正式使用了 Jacman 主题。Jacman 基于 [Pacman](https://github.com/A-limon/pacman) 主题修改而来，目前已有很多特性与原主题不同。你可以前往 [本站](http://wuchong.me) 和 [Demo](http://wuchong.me/jacman) 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 [issue](https://github.com/wuchong/jacman/issues)。
 
 距离当初我把 Jacman 开源至今已有半年零一周了，在这半年里也一直保持着对 Jacman 的更新。看到很多人用这款主题，fork&star 数也越来越好看，我也更有动力继续完善 Jacman。Jacman 自然还有很多改进空间，首先是文档问题，有许多人通过博客、微博、QQ 询问我有关主题的问题，我也意识到之前写的帮助手册可读性太差。正好趁着这次 Jacman 大更新，写篇更详尽、readable 的手册。
 
-##安装指南
-###安装
+## 安装指南
+### 安装
 在博客根目录下执行如下命令。
 ```
 $ git clone https://github.com/wuchong/jacman.git themes/jacman
 ```
 Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。
 
-###启用
+### 启用
 
 修改你的博客根目录下的`_config.yml`配置文件中的`theme`属性，将其设置为`jacman`。同时建议设置`stylus`属性中的`compress`值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。
 ```
@@ -30,7 +29,7 @@ stylus:
   compress: true
 ```
 
-###更新
+### 更新
 ```
 cd themes/jacman
 git pull origin master
@@ -38,54 +37,54 @@ git pull origin master
 请先备份您主题目录下的 `_config.yml` 文件后再升级。
 
 <!-- more -->
-##配置指南
+## 配置指南
 
 Jacman 主题提供了丰富的配置属性，可以实现您对主题的自定义。配置文件`_config.yml`位于主题根目录下。本次更新对配置文件进行了较大调整，如您之前就使用了 Jacman，也需要您根据以下指南进行相应的修改。
 
 ```
-##### 菜单
+### ##  菜单
 menu:
   主页: /
   归档: /archives
   关于: /about
 
-#### 控件
+### # 控件
 widgets: 
 - category
 - tag
 - links
 - rss
 
-#### RSS 
+### # RSS 
 rss: /atom.xml 
 
-#### 图片相关
+### # 图片相关
 imglogo:
-  enable: true               ## 是否显示网站 logo
+  enable: true               ##  是否显示网站 logo
   src: img/logo.png        
-favicon: img/favicon.ico     ## 网站图标    
-apple_icon: img/jacman.jpg   ## 苹果设备上的图标，背景不要透明
-author_img: img/author.jpg   ## 网站底部的博主头像
-banner_img: img/banner.jpg   ## 博客顶部的图片
+favicon: img/favicon.ico     ##  网站图标    
+apple_icon: img/jacman.jpg   ##  苹果设备上的图标，背景不要透明
+author_img: img/author.jpg   ##  网站底部的博主头像
+banner_img: img/banner.jpg   ##  博客顶部的图片
 
-### 主题颜色
+###  主题颜色
 theme_color:
-    theme: '#2ca6cb'    ##默认主题颜色为蓝色
+    theme: '#2ca6cb'    ## 默认主题颜色为蓝色
 
-close_aside: false      ##是否在文章页面自动关闭侧边栏
+close_aside: false      ## 是否在文章页面自动关闭侧边栏
 
-#### 首页相关
+### # 首页相关
 index:
-  expand: true              ## 首页文章是否展开。默认为展开式，显示 Read More。
+  expand: true              ##  首页文章是否展开。默认为展开式，显示 Read More。
   excerpt_link: Read More    
 
-#### 作者信息
+### # 作者信息
 author:
-  intro_line1:  "Hello ,I'm Larry Page in Google."    ## 网站底部的个人介绍
+  intro_line1:  "Hello ,I'm Larry Page in Google."    ##  网站底部的个人介绍
   intro_line2:  "This is my blog,believe it or not."  
-  weibo_verifier:  ## 微博秀的验证码
-  tsina:           ## 用于微博秀和微博分享
-  weibo:           ## 用于显示网站底部社交按钮，下同
+  weibo_verifier:  ##  微博秀的验证码
+  tsina:           ##  用于微博秀和微博分享
+  weibo:           ##  用于显示网站底部社交按钮，下同
   douban:         
   zhihu:  
   email:     
@@ -97,44 +96,44 @@ author:
   stackoverflow:  
 
 
-#### 目录
+### # 目录
 toc:
-  article: true   ## 是否在文章中显示目录
-  aside: true     ## 是否在侧边栏显示目录
+  article: true   ##  是否在文章中显示目录
+  aside: true     ##  是否在侧边栏显示目录
 
-#### 友情链接
+### # 友情链接
 links:
   码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区
   Jark's Blog: http://wuchong.me
   
-#### 评论
+### # 评论
 duoshuo_shortname: 
 disqus_shortname:  
 
-#### 分享按钮
+### # 分享按钮
 jiathis:
-  enable: false   ## 默认使用主题内建分享
+  enable: false   ##  默认使用主题内建分享
   id:    
   tsina: 
   
-#### 网站统计
+### # 网站统计
 google_analytics:
   enable: false
-  id:            ## google analytics ID.
-  site:          ## 网站地址.
+  id:            ##  google analytics ID.
+  site:          ##  网站地址.
 baidu_tongji:
   enable: false
-  sitecode:      ## 百度统计站点特征码
+  sitecode:      ##  百度统计站点特征码
 cnzz_tongji:
   enable: false
-  siteid:        ## CNZZ统计站点ID
+  siteid:        ##  CNZZ统计站点ID
 
-#### 杂项
+### # 杂项
 ShowCustomFont: true  
 fancybox: true        
 totop: true           
 
-#### 自定义搜索
+### # 自定义搜索
 google_cse: 
   enable: false
   cx:  
@@ -142,12 +141,12 @@ baidu_search:
   enable: false
   id:   
   site: http://zhannei.baidu.com/cse/search 
-tinysou_search:     ## http://tinysou.com/
+tinysou_search:     ##  http://tinysou.com/
   enable: false
   id: "4ac092ad8d749fdc6293" 
 ```
 
-###属性功能
+### 属性功能
 - **菜单 menu**
 默认没有启用 `/tags` 和 `/categories`页面，如果需要启用请在博客目录下的`source`文件夹中分别建立`tags` 和 `categories`文件夹每个文件夹中分别包含一个`index.md`文件。内容为：
 
@@ -230,21 +229,21 @@ title: tags (或categories)
 目前官方还未支持十六进制颜色与String值的转换，所以需要手动添加依赖包，该问题估计不久后会解决。
 
 ```
-##在博客的目录下输入下面指令
+## 在博客的目录下输入下面指令
 cd node_modules/hexo-renderer-stylus 
 sudo npm install stylus@0.49.2  #根据系统文件的权限不同，有的不需要加sudo
 ```
 
 然后更改在主题目录下的`_config.yml`的 `theme_color` 下 `theme` 值。
 ```
-### Theme Color 
+###  Theme Color 
 theme_color:
-    theme: '#2ca6cb'    ##the defaut theme color is blue
+    theme: '#2ca6cb'    ## the defaut theme color is blue
 ```
 
 
 
-##常见问题
+## 常见问题
 - **Q：图片默认都是居左的，我怎么设置能让图片居中呢？**
 >使用 `<img src="" style="display:block;margin:auto"/>`的HTML标签。
 
