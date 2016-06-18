@@ -270,127 +270,11 @@ MathJax.Hub.Config({
   </entry>
   
   <entry>
-    <title>Mysql的几个常见设置</title>
-    <link href="http://ipingguo.cc/2015/11/17/some-sets-in-mysql/"/>
-    <id>http://ipingguo.cc/2015/11/17/some-sets-in-mysql/</id>
-    <published>2015-11-17T15:56:38.000Z</published>
-    <updated>2016-06-18T05:09:13.151Z</updated>
-    
-    <content type="html">&lt;p&gt;最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单实用。很有兴致地完成了数据的插入，发现有些数据乱码了，尤其是涉及到作者的名字和发表期刊，带有声调的那种符号，悲剧啊！初期挑选的算法设计的不完善，可是花了近一天时间。由于后期要做推荐，必须使字符合法并不乱码。只有默默地重新做。在设置mysql过程中，发现了个大坑。不多说贴代码：  &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;mysql&amp;gt; show variables like &#39;character%&#39;;
-+--------------------------+-----------------------------------------------+
-| Variable_name            | Value                                         |
-+--------------------------+-----------------------------------------------+
-| character_set_client     | utf8                                          |
-| character_set_connection | utf8                                          |
-| character_set_database   | utf8                                          |
-| character_set_filesystem | binary                                        |
-| character_set_results    | utf8                                          |
-| character_set_server     | lanti1                                        |
-| character_set_system     | utf8                                          |
-| character_sets_dir       | d:\wamp\bin\mysql\mysql5.6.17\share\charsets\ |
-+--------------------------+-----------------------------------------------+
-8 rows in set
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;问题来了，character_set_server | lanti1，如果想改成万能的utf8，发现通过网上的各种方式都改变不了，后来google出来了，现在记录一下。对于不同版本的mysql有不同的修改方式，老版本是在my.ini中 找到mysqld项，追加default_character_set=utf8即可，但是在5.4版本的mysql中就发现不行，就得追加character-set-server=utf8就okay了。重启mysql，show。 &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;mysql&amp;gt; show variables like &#39;character%&#39;;
-+--------------------------+-----------------------------------------------+
-| Variable_name            | Value                                         |
-+--------------------------+-----------------------------------------------+
-| character_set_client     | utf8                                          |
-| character_set_connection | utf8                                          |
-| character_set_database   | utf8                                          |
-| character_set_filesystem | binary                                        |
-| character_set_results    | utf8                                          |
-| character_set_server     | utf8                                          |
-| character_set_system     | utf8                                          |
-| character_sets_dir       | d:\wamp\bin\mysql\mysql5.6.17\share\charsets\ |
-+--------------------------+-----------------------------------------------+
-8 rows in set
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;最好都设置utf8，包括字段的字符集和排序，不然后期会出现很多你臆想不到的问题。不知道为什么mysql不默认设置成utf8，如果建立数据库时不修改默认，mysql居然默认是lanti1。简直是一个大深坑。对于大数据的时代的到来，还是学学Nosql吧。&lt;/p&gt;
-&lt;p&gt;一直没太关心mysql的转义字符的处理，结果处理完发现就悲剧了，mysql中入库时必须转义存储，否则插入不进去数据库，一旦入库了，取出来就不带有反斜杠\ 了，我在处理论文数据集需要拆分表，就忽略了这个问题，导致很多前期处理白费了，取出来后如果想再次入库，必须得再进行转义处理，不同的语言有不同的处理函数，mysql自带的也有，这里就不贴方法了，去google。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单
-    
-    </summary>
-    
-      <category term="Database" scheme="http://ipingguo.cc/categories/Database/"/>
-    
-    
-      <category term="mysql" scheme="http://ipingguo.cc/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>梦想在路上</title>
-    <link href="http://ipingguo.cc/2015/09/26/dream-on-the-go/"/>
-    <id>http://ipingguo.cc/2015/09/26/dream-on-the-go/</id>
-    <published>2015-09-26T08:39:54.000Z</published>
-    <updated>2016-06-18T05:57:54.299Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;距离&lt;a href=&quot;/about-my-dream.html&quot;&gt;上次聊聊梦想&lt;/a&gt;这个略感严肃的话题已经一年有余了，时间真是个好东西，生活中的很多事情都在发生巨大的变化。这次谈谈简单的，梦想还是要有，但是随着心态的变化，还有很多事需要踏实的践行，原本打算回顾这一年来的收获与教训，但仔细想想收获相对与今后的规划来说实在太小，教训倒是有许多，后面会提到。因此，这里主要谈谈开学两月有余学习生活的一些感受，兼谈下美帝的生活体验。&lt;/p&gt;
-&lt;p&gt;这个标题看似是呼应之前的&lt;a href=&quot;/about-my-dream.html&quot;&gt;我所理解的梦想&lt;/a&gt;，那时还在为毕业后的人生思考，也在忙着准备留学相关的事宜。而今已然身在美帝，此时的心境有很大不同。（9.26）&lt;/p&gt;
-&lt;h2 id=&quot;学习状况&quot;&gt;&lt;a href=&quot;#学习状况&quot; class=&quot;headerlink&quot; title=&quot;学习状况&quot;&gt;&lt;/a&gt;学习状况&lt;/h2&gt;&lt;p&gt;今天已是10月29了，转眼间一个月又倏忽不见，貌似不紧张的课程学习似乎和这种节凑背道而驰，却又不然。这学期共有5门课，其中两个核心课程（算法和操作系统）难度很大而且必须要过（至少 A-，因为对PhD 来说是 &lt;a href=&quot;https://www.cs.stonybrook.edu/students/Graduate-Studies/PhDProgram&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;qualifier&lt;/a&gt;{fn|如感兴趣，还可以看看石溪 cs 的&lt;a href=&quot;https://www.cs.stonybrook.edu/sites/default/files/wwwfiles/drupalfiles/basicpage/handbook.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;研究生手册&lt;/a&gt;，了解国外的研究生和博士生主要做什么} ），而 TA 的 &lt;a href=&quot;http://www3.cs.stonybrook.edu/~ellenyliu/310/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSE310&lt;/a&gt; 工作量也很大（看课程链接就知道有3次考试，5次 lab，80人的体量），另外还有两个 seminar 需要准备 paper presentation（幸好其中一个已经 present 过了??）。因此看似不紧张的课程其实工作学习量也是很大的，主要原因还是本科欠债太多了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www3.cs.stonybrook.edu/~rezaul/CSE548-F15.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Algorithm&lt;/a&gt; 的课程有一个 section 的老师课程据说并不太难但是这学期只能 master 选了（我们只能选 PhD section），而想学好算法却又不知情的我碰上的老师讲课内容确实有些难度，比如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;我们熟悉的分析时间复杂度的技巧在这里讲到各种数学证明推导，幸好微积分的内容还记得不少；&lt;/li&gt;
-&lt;li&gt;还有傅里叶变换的应用如多项式相乘等等，这些理解弄懂还不行，需要吸收精髓，不然 homework 的作业是不可能做出来的，最近才发现老师是负责系里 ACM 的因此才每年 homework 自己出新题（??）&lt;/li&gt;
-&lt;li&gt;平摊分析（Amortized Analysis）讲的很深入，直到现在还未完全弄透（需要学苦功夫了）&lt;/li&gt;
-&lt;li&gt;作业和考试题每年完全自己出题，不可能找到现成答案，基本上都是网上常见算法题的进阶版，印象很深的一个就是为 midterm 复习时去做 &lt;a href=&quot;http://www3.cs.stonybrook.edu/~rezaul/Fall-2012/CSE548/CSE548-midterm.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;12Fall midterm 卷子&lt;/a&gt;，第一题第一问就是 leetcode 上的 two sum 问题，而第二问如果不联想到快速多项式相乘 FFT 之类（如果不是 class 讲过和有经验，这种跨越式思维实在难以想象）的根本就觉得不能做。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;目前最大的感受就是老师很追求算法的分析优化（课上讲解）及应用（作业考试的要求），而非仅仅是将传统的技巧讲授就完事了，比如从第一堂课的分治算法引入，以及后面课程中对Dijkstra-SSSP 的算法用 Fibonacci Heaps 改进可见一斑。虽然这门课程的压力很大（midterm 都不到均值），但某种程度上是一种幸运，能在这种环境下学习和被引导，只要扎实去学，分析问题运用算法的能力必然会有较大的提升。&lt;/p&gt;
-&lt;h3 id=&quot;操作系统&quot;&gt;&lt;a href=&quot;#操作系统&quot; class=&quot;headerlink&quot; title=&quot;操作系统&quot;&gt;&lt;/a&gt;操作系统&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://compas.cs.stonybrook.edu/courses/cse506-f15/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OS&lt;/a&gt;课程对于做 system 相关方向的 PhD 来说几乎是必修课，重要程度和含金量也不言而喻。重要事因为搞系统的基本上都绕不开 Unix 系的各种设计思想、发展渊源{fn|Unix 传奇上下篇值得一看，上篇&lt;a href=&quot;http://coolshell.cn/articles/2322.html}，含金量搞因为&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://coolshell.cn/articles/2322.html}，含金量搞因为&lt;/a&gt; coding 量大，需要的技能也多，我们的课程 project 就是要求写一个基本功能的64bit kernel。本科的教训就是没学好 OS 底层的知识，有段时间还老是觉得是老师自己没讲清楚又枯燥乏味，后来才发现学习的资源那么多，只是当时并没有把心思放在好好听讲、认真学习上，也因此对整个 OS 并没有开窍。因此，这门课的价值实际上相当于本科时的 OS、微机接口、计算机组成原理三门课，因为写代码实现 kernel 必须要懂硬件的基本原理、一些设备的操作、汇编调用底层功能等等，确实通过对比这边的上课所学很多东西本科就算没认真学过但也觉得本科的课程质量太低了，枯燥的讲一堆原理然并卵（严重怀疑老师自己是否弄懂，更谈不上自己会不会写代码了）。而这边的老师（以教 OS 的为例）大多真功夫实战，既能 coding 也能 research，而且水平都不低，OS 课另一个master section 老师据说（一个他手的phd 学长听来的）是linux kernel 的 committer，我们老师也会在 piazza 上回答很多 coding 相关的问题，不懂不写代码是不可能的，而从他们的 website 也能看到发表过一些 top conference 的 paper，&lt;strong&gt;这些都是最好的言传身教&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;需要学习的太多，开心的是每次解决一个问题都会带来成就感，尤其是看到自己理解了原理之后看到代码成功的 run 了的那种兴奋。当然，由于欠债太多，挫败感常有，但只要坚定信念，扎实去学，最后必定不负自己的努力。&lt;/p&gt;
-&lt;h3 id=&quot;Seminar&quot;&gt;&lt;a href=&quot;#Seminar&quot; class=&quot;headerlink&quot; title=&quot;Seminar&quot;&gt;&lt;/a&gt;Seminar&lt;/h3&gt;&lt;p&gt;其实国内很多学校的研究生也开 seminar，也会读些论文拿来讨论，但总体的氛围并不太好，原因就我观察到的而言就是在于不是真正地去做学术，往往是为了发 paper 而读或写 paper，也不是真正的 research。始终觉得，没有research 所需的 background （比如基本的 coding 能力、分析论证实验能力等等）而强行做 research 不会取得  outstanding 的成果。&lt;/p&gt;
-&lt;p&gt;seminar 的目的除了在于了解最新的领域内研究进展外，重要的在于大家一起交流，discuss，从而形成 critical thinking 的态度和能力，不已此为目的那叫开 ”routine“ 会， 而不是研讨会。这学期的两个 seminar 一个是 &lt;a href=&quot;http://nrg.cs.stonybrook.edu/courses/cse658_fall2015/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;networking&lt;/a&gt;， 另一个是 &lt;a href=&quot;https://groups.google.com/forum/#!forum/nsisecurityreadinggroup&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;security&lt;/a&gt;。一个很大的感受就是往往 faculty 们很激烈的提问讨论，而我们学生貌似不太积极，原因可能有很多，比如对领域不熟悉等，最大的收获也许就是听这些讨论如何提问，怎么去 critique 这些 top papers。&lt;/p&gt;
-&lt;p&gt;已经做过 presentation 的 networking seminar 其实感觉还有很大的提升空间，比如流畅地解释清楚一些基本概念的能力，英语表达的清晰度（就算发音不准），present 时逻辑的理解等等，幸好让学长帮忙录下来给自己作为反馈了。希望下下周的 security presentation 上有些进步。&lt;/p&gt;
-&lt;h3 id=&quot;石溪本科课程&quot;&gt;&lt;a href=&quot;#石溪本科课程&quot; class=&quot;headerlink&quot; title=&quot;石溪本科课程&quot;&gt;&lt;/a&gt;石溪本科课程&lt;/h3&gt;&lt;p&gt;首先直观的认识就是 TA 的 CSE310 computer networks 这门课，对比自己本科的计算机网络，质量高低立见分晓：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;课本的选择是很重要的问题，这边基本都会用主流教材{fn|比如这门课用的是 &lt;a href=&quot;http://book.douban.com/subject/10573157/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Computer Networking: A Top-Down Approach, 6th edition&lt;/a&gt;}。好的教材能覆盖基本而重要的知识，这本书对于本科教学来说质量确实很高，如果放国内来说，谢希仁的教材也还不错，不过还是有差距。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;课程实验是这门课的一个重要部分，共有6次 lab，基本上是需要自己动手利用 WireShark 软件分析 packet 的数据，结合原理来回答一些问题，这样能加深对 network 如何工作的理解。（PS：我当初学完了计算机网络竟然还没分析过数据包。）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;其他的本科课程可以看看这里：&lt;a href=&quot;https://www.cs.stonybrook.edu/students/Undergraduate-Studies/csecourses。具体不做过多评论。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.cs.stonybrook.edu/students/Undergraduate-Studies/csecourses。具体不做过多评论。&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;另外，本科生的各种资源挺丰富，比如系里分配有 server（包括 unix 系和 windows remote access 账户），还有其他的很多资源以后会详细谈到，比如正版软件的问题。&lt;/p&gt;
-&lt;h3 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;来美国留学就是来学习来的，练好基本功是做好 research 的前提，没有捷径，也没有任何的借口，踏实和坚持进步就是最好的行动证明。&lt;/p&gt;
-&lt;h2 id=&quot;生活体验&quot;&gt;&lt;a href=&quot;#生活体验&quot; class=&quot;headerlink&quot; title=&quot;生活体验&quot;&gt;&lt;/a&gt;生活体验&lt;/h2&gt;&lt;p&gt;这里简略说说来美国生活的一些见闻，等寒假有空了可以拓展一篇图文并茂的详细介绍文章。&lt;/p&gt;
-&lt;h3 id=&quot;吃住行&quot;&gt;&lt;a href=&quot;#吃住行&quot; class=&quot;headerlink&quot; title=&quot;吃住行&quot;&gt;&lt;/a&gt;吃住行&lt;/h3&gt;&lt;p&gt;出门没车简直不行了，公交晚点不准时是常事、住的还算舒服（太贵了??）、吃主要自己解决（食堂难吃又贵）&lt;/p&gt;
-&lt;h3 id=&quot;消费&quot;&gt;&lt;a href=&quot;#消费&quot; class=&quot;headerlink&quot; title=&quot;消费&quot;&gt;&lt;/a&gt;消费&lt;/h3&gt;&lt;p&gt;信用卡真心方便，基本很少会见到用现金。另外，各种 tax 很头疼，买东西的价格不是标的，一定记得加上消费税！&lt;/p&gt;
-&lt;h2 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h2&gt;&lt;p&gt;“雄关漫道真如铁，而今迈步从头越”，相信前行路上不忘此心，正如博客底栏所言：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Better or not, that determines who you are.&lt;br&gt;   Keep making a difference everyday !&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;距离&lt;a href=&quot;/about-my-dream.html&quot;&gt;上次聊聊梦想&lt;/a&gt;这个略感严肃的话题已经一年有余了，时间真是个好东西，生活中的很多事情都在发生巨大的变化。这次谈谈简单的，梦想还是要有，但是随着心态的变化，还有很多事需要踏实的践行，原本打算回顾这一年来的收获与教训，但仔细想想收获相对与今后的规划来说实在太小，教训倒是有许多，后面会提到。因此，这里主要谈谈开学两月有余学习生活的一些感受，兼谈下美帝的生活体验。&lt;/p&gt;
-&lt;p&gt;这个标题看似是呼应之前的&lt;a href=&quot;/about-my-dream.html&quot;&gt;我所理解的梦想&lt;/a&gt;，那时还在为毕业后的人生思考，也在忙着准备留学相关的事宜。而今已然身在美帝，此时的心境有很大不同。（9.26）&lt;/p&gt;
-&lt;h2 id=&quot;学习状况&quot;&gt;&lt;a href=&quot;#学习状况&quot; class=&quot;headerlink&quot; title=&quot;学习状况&quot;&gt;&lt;/a&gt;学习状况&lt;/h2&gt;&lt;p&gt;今天已是10月29了，转眼间一个月又倏忽不见，貌似不紧张的课程学习似乎和这种节凑背道而驰，却又不然。这学期共有5门课，其中两个核心课程（算法和操作系统）难度很大而且必须要过（至少 A-，因为对PhD 来说是 &lt;a href=&quot;https://www.cs.stonybrook.edu/students/Graduate-Studies/PhDProgram&quot;&gt;qualifier&lt;/a&gt;{fn|如感兴趣，还可以看看石溪 cs 的&lt;a href=&quot;https://www.cs.stonybrook.edu/sites/default/files/wwwfiles/drupalfiles/basicpage/handbook.pdf&quot;&gt;研究生手册&lt;/a&gt;，了解国外的研究生和博士生主要做什么} ），而 TA 的 &lt;a href=&quot;http://www3.cs.stonybrook.edu/~ellenyliu/310/&quot;&gt;CSE310&lt;/a&gt; 工作量也很大（看课程链接就知道有3次考试，5次 lab，80人的体量），另外还有两个 seminar 需要准备 paper presentation（幸好其中一个已经 present 过了??）。因此看似不紧张的课程其实工作学习量也是很大的，主要原因还是本科欠债太多了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="杂" scheme="http://ipingguo.cc/categories/%E6%9D%82/"/>
-    
-    
-      <category term="梦想" scheme="http://ipingguo.cc/tags/%E6%A2%A6%E6%83%B3/"/>
-    
-      <category term="留学" scheme="http://ipingguo.cc/tags/%E7%95%99%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>技术博客网站推荐</title>
     <link href="http://ipingguo.cc/2015/03/22/tech-blogs/"/>
     <id>http://ipingguo.cc/2015/03/22/tech-blogs/</id>
     <published>2015-03-22T11:21:00.000Z</published>
-    <updated>2016-06-18T05:50:39.591Z</updated>
+    <updated>2016-06-18T15:07:50.128Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;/images/tech-blogs.jpg&quot; class=&quot;img-topic&quot;&gt;&lt;br&gt;对于学CS的IT人而言，终身学习是很有必要的，尤其是在这样一个技术快速迭代更新的时代。经常看看本文介绍的一些技术博客则是其中的一个途径，相信&lt;a href=&quot;/tech-news.html&quot;&gt;阅读资讯&lt;/a&gt;可以知晓前沿科技发展，而深入阅读技术博客{fn|本文列表部分博客可能并非技术类，但可能是与技术相关的思考、感受，因此一并整理}可以沉淀知识，取得进步。&lt;/p&gt;
 &lt;h2 id=&quot;综合&quot;&gt;&lt;a href=&quot;#综合&quot; class=&quot;headerlink&quot; title=&quot;综合&quot;&gt;&lt;/a&gt;综合&lt;/h2&gt;&lt;ul&gt;
@@ -547,9 +431,7 @@ MathJax.Hub.Config({
       <category term="资源" scheme="http://ipingguo.cc/categories/%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="RSS" scheme="http://ipingguo.cc/tags/RSS/"/>
-    
-      <category term="博客" scheme="http://ipingguo.cc/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="Blog" scheme="http://ipingguo.cc/tags/Blog/"/>
     
       <category term="技术" scheme="http://ipingguo.cc/tags/%E6%8A%80%E6%9C%AF/"/>
     
@@ -584,106 +466,11 @@ MathJax.Hub.Config({
   </entry>
   
   <entry>
-    <title>我所理解的梦想</title>
-    <link href="http://ipingguo.cc/2014/09/16/about-my-dream/"/>
-    <id>http://ipingguo.cc/2014/09/16/about-my-dream/</id>
-    <published>2014-09-15T16:39:54.000Z</published>
-    <updated>2016-06-18T05:57:22.220Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;今天知晓，我们这届的保研名单出炉了，颇有些感慨。最近半年年也许是一年亦或是两年罢，我很少在空间（Qzone）上发表心情或者写日志了，每每和好友亲朋交流也是短暂的寒暄，大多时候以总是&lt;strong&gt;很忙&lt;/strong&gt;来作为堂皇的理由。也罢，今天写点文章，聊以表达自己内心的想法以及对这&lt;strong&gt;“忙”&lt;/strong&gt;中的一些说明。一来是对自己的成长历程中的不时总结，二来表明自己的心路历程以及对梦想的坚定，三来若能给后来人些许启发则甚好了。&lt;/p&gt;
-&lt;h2 id=&quot;关于标题&quot;&gt;&lt;a href=&quot;#关于标题&quot; class=&quot;headerlink&quot; title=&quot;关于标题&quot;&gt;&lt;/a&gt;关于标题&lt;/h2&gt;&lt;p&gt;题目是我所理解的梦想，这其实也并不为奇，因为转眼间都已然是大四党了，是该为自己的前途做些深思。更直接的则是毕业之后的去向问题，说大就是职业生涯的选择以及追寻什么样的梦想问题了，说小就是该就业还是读研或是出国了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;出国于我是一个梦想，是一个可以并且必然会实现的梦想。也许有人说，能必然实现的能叫梦想吗？我想说，出国留学也许是我梦想征途中的关键一个而已，它承载着我对未来的希望也承载着家人的期盼更承载着一份责任和义务。梦想是什么，我理解的很简单也很复杂，简单在于它就是那种让你在低落间奋进，迷惘中沉思，在高昂时踏实的力量；复杂在于它有时也说不清到底是什么，难以用言语形容，难于用感情表达，难在用行动去践行。为何难以践行，因为你不知道大多时候这么去做真的是为了所谓的梦想吗。于我，梦想时而让我奋进，也想、时而让我在高压下崩溃乃至低迷，但我相信这把心灵之剑最终引领我达到所向往的地方。&lt;/p&gt;
-&lt;p&gt;具体而言，现实的期望是对梦想的实体化。简单讲，我期待将来在国外学习深造几年，然后回国或者就在国外去研究院或者IT公司工作一两年然后确定职业生涯是继续留学术界或者工业界亦或是两者之间，至于生活至少可以让家人衣食无忧地生活在他们想待的地方就好。说的大一点，希望能够有精力朝着儿时的梦想路上走远一点，也即是做一个教育艺术家（这个概念在我这里有着很深的情结，以后有机会再讲述吧）。&lt;/p&gt;
-&lt;h2 id=&quot;出国留学&quot;&gt;&lt;a href=&quot;#出国留学&quot; class=&quot;headerlink&quot; title=&quot;出国留学&quot;&gt;&lt;/a&gt;出国留学&lt;/h2&gt;&lt;p&gt;于我而言，出国则是大一时模糊的意愿了，后来则在成长中以及对自己的了解中愈发坚定了这个念头。简短的一些历程描述可以参看我在一亩三分地的&lt;a href=&quot;http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;amp;tid=100459&amp;amp;page=2&amp;amp;authorid=117845&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个帖子&lt;/a&gt;吧，为了方便我就直接引述在这里（稍作修改，原帖主要讨论留学与父母的关系问题）：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其实出国这个词，说起来得追溯到大一时候，那时候年轻气盛，总想走出国门去扩宽下视野，然后陆续了解了些信息，也从学长学姐哪里知道出国到底是怎样一个概念。接着就先把红宝书买了，然后置于案头许久未动。至于在这个阶段，基本上没和父母沟通交流过，因为我自己本身也不太了解出国到底意味着什么。&lt;/p&gt;
-&lt;p&gt;后来进入大二，才慢慢对出国有些进一步的认识，这个时候无非也是停留在出国首先得把GT考好的地步，至于申请相关的还有GPA的重要性以及个人各种科研实习背景等还是没有引起足够重视，大二的暑假便和两个同学热血沸腾地到四川办暑期培训班了（本人武大的），这期间基本上都是和小学初中的小朋友度过的，至于学习和GT准备更是无从谈起。接着8月份回来就开始准备数模了，这个经历对我影响深远，以至于今天的美赛数模准备连过年都只回家3天，而是和队友们奋斗，最终也还算满意地获得了M奖（算是一等奖吧）。在国赛数模学校集中培训期间以及和队友寒假留校准备期间，和家里本来就联系得少，这个时候和父母关于出国的讨论就更是显得不足了，不过他们看我如此努力为将来准备着的时候，也还是比较支持，心里也知道我是为出国而努力着。&lt;/p&gt;
-&lt;p&gt;再接着，就是报名G考了，这时候和父母得开口要钱，所以关于出国的问题就比较深入地沟通了，总体上他们很支持我的决定，因为他们是真的希望儿子能有出息，而出国这条路无疑是正确的，即使对于我来说是有些艰难。&lt;/p&gt;
-&lt;p&gt;后来，G考不顺利，T也只能凑合的分数，这时候压力蛮大，和父母再次谈报名二战的时候，他们也感到是不是我的压力太大了，就开始劝阻我希望我好好地快乐轻松学习生活，不要太累，还多次说到将来毕业还可以找工作，国内读研其实也不错诸如此类的。但是，我的决心已定，不会去后悔以及放弃了，相信坚定出国信念的人都不会轻言放弃吧，即使压力再大，仍旧不悔此时的努力和拼搏。这个时候，我经常和父母谈到出国是为了追求自己心中的理想，去实现自己更大的价值，哪怕有些时候有些迷茫，有些沮丧，但前进的脚步是不停息的，每每这时，父母都表示理解和支持，毕竟这是他们儿子在为自己的未来思考与探索，也在成长。&lt;/p&gt;
-&lt;p&gt;之后我深入了解了出国读书的一些信息后就基本上只申请全奖的，基本是PHD，至于这个决定，也不完全是因为经济压力，还有一部分是自己可能比较喜欢学术时踏实沉下心来做事的氛围，也想多深入了解下自己专业的前沿，为将来不管是去工业界还是留在学士界打下坚实基础。&lt;/p&gt;
-&lt;p&gt;总之，出国的准备过程中，出国的目的一定要很明确，比如出国的动机、人生的规划打算这些深层次的问题，只有自己先想清楚并坚定信念才能走下去，否则就是一个艰难而迷茫的过程。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;现在在我看来，出国意味着的也许还不仅仅是这些。因为这期间尤其是这半年来，我跟着导师做科研项目，学会看paper，甚至现在着手试着去写出一流的paper，凡此种种，深入的看到了国内学术圈的样貌以及学术氛围的概况（这个留作以后详述吧，也不太方便公开深入地分析，原因你懂的）。我觉得，出去一定是必然的，于我而言。当然，人各有志，我也很欣赏那些优秀的同级大神继续保研或者工作。&lt;/p&gt;
-&lt;p&gt;关于出国留学的意义可以参看知乎上的这个帖子&lt;a href=&quot;http://www.zhihu.com/question/20830287&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;出国留学的意义是什么？&lt;/a&gt;，关于留学相关的比如&lt;a href=&quot;http://www.zhihu.com/question/20413968&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;怎样判断自己是否应该出国留学&lt;/a&gt;，&lt;a href=&quot;http://www.zhihu.com/question/19855467&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;出国留学的目的是什么&lt;/a&gt;这些都是需要自己深思的，网络上的讨论很多，但终究还是要自己做出决定，并为之努力。另外还有几篇帖子值得一看：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.zhihu.com/question/20105245/answer/13992972&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中国的理工大学缺少什么？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.zhihu.com/question/22494805/answer/21759639&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;世界名校提供了什么国内大学无法提供的教育环境和氛围？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.zhihu.com/question/20289454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中国名校的学生也会感叹「这就是中国的大学」吗？&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;一年回顾&quot;&gt;&lt;a href=&quot;#一年回顾&quot; class=&quot;headerlink&quot; title=&quot;一年回顾&quot;&gt;&lt;/a&gt;一年回顾&lt;/h2&gt;&lt;p&gt;这一年的回顾，该是从去年的暑假开始。从2013.7到2014.9，简单可以分为下面几个阶段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;2013年7月10 —— 8月初: 办培训班&lt;/li&gt;
-&lt;li&gt;2013年8月13 —— 8月30：数模集训&lt;/li&gt;
-&lt;li&gt;2013年9月初 —— 1月初：专业学习&lt;/li&gt;
-&lt;li&gt;2014年1月中 —— 2月中：备战美赛&lt;/li&gt;
-&lt;li&gt;2014年2月底 —— 9月初：GT与Paper&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;A-暑假培训&quot;&gt;&lt;a href=&quot;#A-暑假培训&quot; class=&quot;headerlink&quot; title=&quot;A.暑假培训&quot;&gt;&lt;/a&gt;A.暑假培训&lt;/h3&gt;&lt;p&gt;7月9日晚，坐着火车踏上去四川的旅程，这也许是坐过最久的车程罢。因为事先和另另两个朋友的商量计划，所以尽管去的仓促，但抵达甘洛县城的第二天我们就开始干活了。开始几天无非是把场地解决好，布置好从武汉带的横幅和展板，然后就冒着烈日开始接下来几天发宣传单，“扫楼”了。这种扫楼往往不是如学校那般便利，有时会穿过几条巷子，爬上几座高楼，也是刚开始比较难熬的时候，还好在白天扫楼，傍晚摆点的连续宣传下招到十几个学生。于是在7月中旬，我们三人开始开班上课了，一直到8月初结束，这期间发生了不少事情，值得回味。简单谈几点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;做好一件事，要提前规划好，即使俗话说“计划赶不上变化”。&lt;/strong&gt;我们办的这次培训班，其实事先太过于自信，没有做好充分调研的准备，比如对当地暑假补课的市场分析，以及往年主要有哪些老师或者培训机构在招生。我们由于失算，导致这部分沉默时间成本与预算有亏减。再比如，对当地的一对一家教和小班教学应该区别对待，对小孩子的管教等这些问题也是事先未能考虑周全。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对小孩的教育问题值得家长去深思，至少从孩子的成长角度着想应该考虑到孩子本身的意愿。&lt;/strong&gt;事实上，在和来补课的小孩交流（主要是小升初和初一、初二的学生）时，很少是自己愿意在暑假补课的，但是因为平时成绩跟不上学校进度导致落后很多所以被家长逼迫着补习。这个问题一部分是由于孩子本身不努力，以及当地本身的教育环境相对落后。而在家长方面，他们大多不懂孩子该怎么去管教，给人的感觉就像是好像只要孩子暑假也在学习心里就比较踏实，不会感觉自家孩子比别人落后了。另外，这些孩子，虽然生活在相对封闭的环境中，但是作息很不规律，经常晚上很晚睡觉，据他们自己说主要的活动也就是泡网吧，上QQ聊天打游戏，看电影之类，甚至白天经常拿着手机娱乐（上课时有些学生经常被抓到）。这样的作息，和在校的很多大学生几乎无异！&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;彝族风情的感受。&lt;/strong&gt;甘洛县大多人是属于彝族的，而今看来很多他们的生活习惯几乎也和汉人相似了——这个现象应该是比较普遍的，曾经去过恩斯、凤凰等地一些土家簇、苗族的居民几乎也和汉人没有太大的区别。另外值得一提的是，彝族的火把节甚是热闹，当地的居民太过热情了，高粱酒味道不错~~，烤猪肉有些粗暴原始。。。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;东中西部的各方面差异太大了。&lt;/strong&gt;想来出生在中部九省通衢的湖北，去过沿海的江苏昆山周庄和南京，加上这次四川成都与甘洛之行，对三部的发展样貌和地域风情感受颇深。西部高山峻岭多，风景奇秀，气候宜人，民风很淳朴，但生活条件相对落后，信息资源相对闭塞，举个例子：在火把节期间去一朋友家路上，坐着面包车真有些心惊肉跳，山路崎岖，高山间随处可见云雾翻腾；中部丘陵地带多，繁华适宜，发展也较迅速，但相对而言污染也很厉害，比如去年武汉的空气经常处于重度污染的节奏；而东部沿海地区，确有现代城市的风范，各方面管理，衣食住行极为便利，发展和污染的平衡关系处理得很好，资源配置也很合理，比如：在南京住宿管理十分严格，出门乘地铁也很便捷（车厢相对武汉地铁较旧也可见一斑）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;起初为何想要去四川做培训，主要还是在于一颗年少轻狂的心，想去体验类似创业的激情奋斗，另外也希望能赚些钱做自己想做的事。说到这次经历的收入，前期总计投入五千左右，后期收入接近一万五，但去掉成本每人所得基本能够去四川旅游一趟，真没赚多少。更多的，也许是一种经历和收获。&lt;/p&gt;
-&lt;p&gt;这个阶段与梦想有关的则是一种青春不服输不放弃的态度，因为我知道这次办培训班不一定能成功，也不一定能赚到钱，甚至在异地他乡还可能有潜在的危险等等，但是这股冲劲我相信在梦想的征途中需要它。出发之前，有这样一条说说：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;!--￼0--&amp;gt;/images/shuoshuo.png&quot; alt=&quot;说说&quot;&gt;&lt;/div&gt;
-
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;我那时所理解的梦想就该是在年少轻狂的青春岁月里敢闯敢做，一路可以披荆斩棘，挺过困难，追随内心。即使办培训班的经事后来看不是那么辉煌。&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;B-数模集训&quot;&gt;&lt;a href=&quot;#B-数模集训&quot; class=&quot;headerlink&quot; title=&quot;B.数模集训&quot;&gt;&lt;/a&gt;B.数模集训&lt;/h3&gt;&lt;p&gt;13年8月初，我由于要赶在13日回学校参加学校组织的数模{fn|&lt;a href=&quot;http://www.mcm.edu.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;全国大学生数学建模比赛&lt;/a&gt;}集训，提前告别两位合伙人，离开四川，开始这段后来对我影响至深的数模之旅。&lt;/p&gt;
-&lt;p&gt;关于数学建模比赛，个人认为不同于全国大学生数学竞赛侧重高数、线代、概率论等知识能力的考察，它更侧重于对知识的综合运用以及建模能力的考察，因此显得非常有价值，这也许是近年来数模比赛的参赛队伍不断加速壮大的原因吧。而我和数模的经历，得从4月初参加学校数学院组织的周末培训说起，那时不太懂什么是数模，只是觉得这个貌似比较“高大上”，所以就报名了，后来也是间歇去上过一些课，直到6月底的学校选拔赛通过后开始认真地准备了。不过那时候不知道数模所需要的技能，因此才会在暑假去四川了，想来这也是一种机缘巧合吧。&lt;/p&gt;
-&lt;p&gt;数模集训的任务实际上还是很重，数院的老师要求比较严格，深层次感受到知识能力的匮乏，这三点应该是这次培训给我印象最深的。在这17天的集训中，主要还是靠我们每个队的成员自己去努力，老师真的只是起到一个点拨的作用，集训的效果应该是给共同备战的人提供了一个较好的学习氛围。这17天，每天8点要到机房，晚上回到宿舍也会继续练习算法和MATLAB使用到很晚，白天有时候做题查资料能够眯上一小会儿时常会觉得是件很幸福的事。不过学到的东西尤其多，自我约束意识在此期间得到了增强，学习能力也是在此期间由被动提高逐渐变为主动，更有意思的是让我对CS专业有了一种莫名的兴趣，比如在再次学习Floyd算法时，终于知道它在真实的生活场景是如何运用的，而不再是书本上几行枯燥的代码了，因为从一个真实存在的有价值去解决的生活问题到想到用学过的算法去解决这种感觉实在是太有意思了，当然，有了这种感觉再去着手设计实现问题解决方案并写代码就很有动力了。还有一件有意思的事情是编写MATLAB这种貌似和CS老本行的主流语言不太想干的代码时，也能让我注意到一些变量的命名、引用以及程序风格的习惯养成，这可是切实关系到紧张集训期间的学习效率以及解决问题的逻辑思维过程的。&lt;/p&gt;
-&lt;p&gt;数模在这个期间给我的另一个很大的影响是通过摸索学会怎么去检索资料，尤其是查阅论文，以及培养快速读懂问题需求和解决方案并迁移运用的能力。这些能力尤其能在以前不熟悉的领域而现在由于问题需要而必须去了解的过程中得到了极大地锻炼。至于具体的收获和感受，待以后另写一篇总结下，并且给出相关的资源和链接。&lt;/p&gt;
-&lt;p&gt;集训之后就是开学后不久的国赛了，2013年的题目尤其让人震惊，因为题目中出现了多媒体素材，A题涉及到视频的数据分析和处理，而B题则是碎纸片的图片信息处理了，这个在以前可是没有先例，即使近几年的题目数据量也是达到了数万甚至百万级别。因为本身的觉悟较迟以及自身积淀不够，导致未能很好地完成比赛题目，但也是按照要求中规中矩的提交了比赛论文，得了个省三等奖。有些惊喜，也有些遗憾，遗憾的不是比赛的结果而是未能早些接触到这个未曾想到对我影响很大的赛事。数模的历程到这里就告了一个段落了，因为彼时已经计划参加2014的美赛。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我那时所理解的梦想就是踏实地沉心学习，提高能力，培养对专业的热爱，不愧此心。即使自身的能力和知识水平很有限，或者比赛的结果不是那么值得炫耀。&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;C-专业学习&quot;&gt;&lt;a href=&quot;#C-专业学习&quot; class=&quot;headerlink&quot; title=&quot;C.专业学习&quot;&gt;&lt;/a&gt;C.专业学习&lt;/h3&gt;&lt;p&gt;大三上学期，是专业课的集中阶段。加上选修课算起来有12门，这个学期主要就是认真学习，扎实提高编程能力以及为GRE考试做复习准备。值得一提的有这样几门课程：算法设计与分析、计算机安全保密、编译原理、计算机网络、DBI{fn|Database System Implementation(数据库系统实现英文课)}，Linux原理。这些课程都有认真去学，即使有的课程最终的分数很尴尬（卡GPA？）。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;这门课有两点值得去记录的，第一是我买了本英文算法教材，二是我用C和Java实现了上机习题和课本基本算法。英文教材和中文的封面没有太大区别，如下：&lt;img src=&quot;/images/algobook.png&quot; height=&quot;35pt&quot; width=&quot;24pt&quot;&gt; 但是，在阅读内容时对比中文版本要方便理解的多，这个是真心感受到了翻译过来的和原版的区别。（另外个人有个癖好，凡是感兴趣的书籍有英文版的，就算不去读它几遍也必然会收藏起来。）买英文教材的一个初衷也是因为老师课堂PPT是英文的，这样可以方便掌握教授内容的来龙去脉，再进一步就是学习一些专业的表达了，并且这本书质量确实很大，几乎囊括了目前的所有基本算法，很有长期学习的意义。至于用Java或者C实现部分算法，则是一个熟悉和加深理解算法的过程，这其中不仅对语言本身的语法起到了复习巩固的作用，而且再次锻炼了程序调试的技能，比如二分查找这个算法中index的改变位置等这些细节往往决定着结果的优劣甚至成功与失败。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;安全保密&lt;/strong&gt;这门课实则是计科版的密码学，老师对课程要求不高，但是对于CS专业的学生很多基本安全知识还是很有必要去掌握，比如常见的RSA，DES，AES，数字签名，密钥证书等等这些。我之所以提到这门课是因为还是花了心思去完成它的大作业——大素数的产生，为了完成这个作业，精力也耗费不少，当然跟本身的编程能力很有关系（太弱了。。）。毕竟最后还是完成了作业的基本要求，但是有些要求还是由于能力和精力原因未能完成，下图是作业提交的基本资料，具体的经过可以另写一篇文章去描述解释了。&lt;img src=&quot;/images/secureassignment.png&quot; height=&quot;64pt&quot; width=&quot;43pt&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;编译原理&lt;/strong&gt;这门课程则是学的最满意的一门了(除了分数又卡GPA?)。首先得得感谢老师的认真负责，每次板书都很仔细有如数学老师推导公式一样，而且讲课不是跟着PPT走而是主动式地牵引PPT跟着她的思路走，实属难得！其次，因为编译原理本身很难，也许是被历年的挂科率高或者高分率低给吓着了，所以下决心去学好。最得意的便是几次实习作业的完成了，每次都是认真按照前一学期所学的软件工程思想来完成，从总体设计到完成文档到实现编码测试通过，既锻炼了知识运用的能力，又可以加强编程实践，还可以为新知识的理解巩固起到促进作用。关于三次实习作业，粗略且不完整的展示可以参看这里&lt;a href=&quot;http://blog.csdn.net/www_caoqq_net/article/details/17605513&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Java编写的小语言词法分析器&lt;/a&gt;。待后续另写文章详细说明完成过程。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;网络&lt;/strong&gt;这门课程真的是尤其重要，但是老师讲的很浅而且几乎都是随着PPT走。谈到这门课是因为平时没怎么好好去学，但是在期末却沉下心来把重要的知识点都复习到位并且弄懂了，所以考试能过90了。其他的就在于基本的原理有待实践了，主要谈谈复习的心得。其实复习时做的工作还真不算少，比如先按照课本总结知识点并对每张画出知识结构图，再结合PPT内容和历年的软考试卷网络部分试题来巩固练习，这样下来也写满了一小叠纸了，其次就是对知识点本身的理解，一般情况下还是多去寻找不同的资料解释为佳，比如谢希仁的教材就讲解的比较详细，再比如维基百科的相关词条都很有帮助。其实复习网络课的过程，很大程度上是可以提取方法来学习新知和复习知识的，这也许是最大的收获吧。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;DBI&lt;/strong&gt;这个是全英文的教学，从老师讲课到PPT到作业完成和期末考试，全程英文。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Linux&lt;/strong&gt;虽为专业选修课，但也很重要。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;我那时所理解的梦想就是踏实地沉心学习，提高能力，培养对专业的热爱，不愧此心。即使自身的能力和知识水平很有限，或者比赛的结果不是那么值得炫耀。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;一年的回顾（续）&quot;&gt;&lt;a href=&quot;#一年的回顾（续）&quot; class=&quot;headerlink&quot; title=&quot;一年的回顾（续）&quot;&gt;&lt;/a&gt;一年的回顾（续）&lt;/h2&gt;&lt;p&gt;于2015年9月26日补充到2014结束。&lt;/p&gt;
-&lt;h3 id=&quot;D-备战美赛&quot;&gt;&lt;a href=&quot;#D-备战美赛&quot; class=&quot;headerlink&quot; title=&quot;D.备战美赛&quot;&gt;&lt;/a&gt;D.备战美赛&lt;/h3&gt;&lt;p&gt;接着是到寒假和两位队友一起为美赛数模{fn|&lt;a href=&quot;http://www.comap.com/undergraduate/contests/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;美国大学生数学建模比赛&lt;/a&gt;}准备。这个寒假全力以赴去做的就是美赛了，尤其感谢读书??和 PX 同学，和你们合作很愉快，还记得快过年的时候我们依旧在寒冷的学校宿舍里做模拟题，讨论、奋战的情景。&lt;/p&gt;
-&lt;h3 id=&quot;E-GT与Paper&quot;&gt;&lt;a href=&quot;#E-GT与Paper&quot; class=&quot;headerlink&quot; title=&quot;E.GT与Paper&quot;&gt;&lt;/a&gt;E.GT与Paper&lt;/h3&gt;&lt;p&gt;然后就是今年上学期&lt;/p&gt;
-&lt;p&gt;待续。。&lt;/p&gt;
-&lt;h3 id=&quot;F-找实习插曲&quot;&gt;&lt;a href=&quot;#F-找实习插曲&quot; class=&quot;headerlink&quot; title=&quot;F.找实习插曲&quot;&gt;&lt;/a&gt;F.找实习插曲&lt;/h3&gt;&lt;h3 id=&quot;G-GT-二战&quot;&gt;&lt;a href=&quot;#G-GT-二战&quot; class=&quot;headerlink&quot; title=&quot;G.GT 二战&quot;&gt;&lt;/a&gt;G.GT 二战&lt;/h3&gt;&lt;h3 id=&quot;H-准备留学申请&quot;&gt;&lt;a href=&quot;#H-准备留学申请&quot; class=&quot;headerlink&quot; title=&quot;H.准备留学申请&quot;&gt;&lt;/a&gt;H.准备留学申请&lt;/h3&gt;&lt;h2 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h2&gt;&lt;p&gt;待续。。&lt;/p&gt;
-&lt;p&gt;PS：写个总结也不容易啊，工作量还是比较大。  &lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;今天知晓，我们这届的保研名单出炉了，颇有些感慨。最近半年年也许是一年亦或是两年罢，我很少在空间（Qzone）上发表心情或者写日志了，每每和好友亲朋交流也是短暂的寒暄，大多时候以总是&lt;strong&gt;很忙&lt;/strong&gt;来作为堂皇的理由。也罢，今天写点文章，聊以表达自己内心的想法以及对这&lt;strong&gt;“忙”&lt;/strong&gt;中的一些说明。一来是对自己的成长历程中的不时总结，二来表明自己的心路历程以及对梦想的坚定，三来若能给后来人些许启发则甚好了。&lt;/p&gt;
-&lt;h2 id=&quot;关于标题&quot;&gt;&lt;a href=&quot;#关于标题&quot; class=&quot;headerlink&quot; title=&quot;关于标题&quot;&gt;&lt;/a&gt;关于标题&lt;/h2&gt;&lt;p&gt;题目是我所理解的梦想，这其实也并不为奇，因为转眼间都已然是大四党了，是该为自己的前途做些深思。更直接的则是毕业之后的去向问题，说大就是职业生涯的选择以及追寻什么样的梦想问题了，说小就是该就业还是读研或是出国了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="杂" scheme="http://ipingguo.cc/categories/%E6%9D%82/"/>
-    
-    
-      <category term="出国" scheme="http://ipingguo.cc/tags/%E5%87%BA%E5%9B%BD/"/>
-    
-      <category term="梦想" scheme="http://ipingguo.cc/tags/%E6%A2%A6%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="http://ipingguo.cc/2010/10/01/hello-world/"/>
     <id>http://ipingguo.cc/2010/10/01/hello-world/</id>
     <published>2010-09-30T16:00:00.000Z</published>
-    <updated>2016-06-18T08:22:24.561Z</updated>
+    <updated>2016-06-18T15:06:44.882Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://ipingguo.cc/&quot;&gt;Jack’s Homepage&lt;/a&gt;! This is your very first post. &lt;/p&gt;
 &lt;h2 id=&quot;座右铭&quot;&gt;&lt;a href=&quot;#座右铭&quot; class=&quot;headerlink&quot; title=&quot;座右铭&quot;&gt;&lt;/a&gt;座右铭&lt;/h2&gt;&lt;p&gt;若不静，省身也不密，见理也不明，都是浮的。&lt;/p&gt;
@@ -696,10 +483,10 @@ MathJax.Hub.Config({
     
     </summary>
     
-      <category term="Jack" scheme="http://ipingguo.cc/categories/Jack/"/>
+      <category term="Blog" scheme="http://ipingguo.cc/categories/Blog/"/>
     
     
-      <category term="Jack" scheme="http://ipingguo.cc/tags/Jack/"/>
+      <category term="Blog" scheme="http://ipingguo.cc/tags/Blog/"/>
     
   </entry>
   

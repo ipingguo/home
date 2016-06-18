@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ipingguo.cc/2015/03/22/tech-blogs/</loc>
+    
+    <lastmod>2016-06-18T15:07:50.128Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ipingguo.cc/2010/10/01/hello-world/</loc>
     
-    <lastmod>2016-06-18T08:22:24.561Z</lastmod>
+    <lastmod>2016-06-18T15:06:44.882Z</lastmod>
     
   </url>
   
@@ -23,37 +30,9 @@
   </url>
   
   <url>
-    <loc>http://ipingguo.cc/2015/09/26/dream-on-the-go/</loc>
-    
-    <lastmod>2016-06-18T05:57:54.299Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2014/09/16/about-my-dream/</loc>
-    
-    <lastmod>2016-06-18T05:57:22.220Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2015/03/22/tech-blogs/</loc>
-    
-    <lastmod>2016-06-18T05:50:39.591Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ipingguo.cc/2016/06/18/images/</loc>
     
     <lastmod>2016-06-18T05:34:29.663Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ipingguo.cc/2015/11/17/some-sets-in-mysql/</loc>
-    
-    <lastmod>2016-06-18T05:09:13.151Z</lastmod>
     
   </url>
   
