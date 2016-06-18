@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | Jack&#39;s Homepage</title>
+    <title>Mysql的几个常见设置 | Jack&#39;s Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Jack">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单实用。很有兴致地完成了数据的插入，发现有些数据乱码了，尤其是涉及到作者的名字和发表期刊，带有声调的那种符号，悲剧啊！初期挑选的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://ipingguo.cc/2016/06/17/hello-world/index.html">
+<meta property="og:title" content="Mysql的几个常见设置">
+<meta property="og:url" content="http://ipingguo.cc/2015/11/17/some-sets-in-mysql/index.html">
 <meta property="og:site_name" content="Jack's Homepage">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-06-17T16:15:46.320Z">
+<meta property="og:description" content="最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单实用。很有兴致地完成了数据的插入，发现有些数据乱码了，尤其是涉及到作者的名字和发表期刊，带有声调的那种符号，悲剧啊！初期挑选的">
+<meta property="og:updated_time" content="2016-06-18T05:09:13.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Mysql的几个常见设置">
+<meta name="twitter:description" content="最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单实用。很有兴致地完成了数据的插入，发现有些数据乱码了，尤其是涉及到作者的名字和发表期刊，带有声调的那种符号，悲剧啊！初期挑选的">
 <meta name="twitter:creator" content="@OhJackYang">
 
     
@@ -52,7 +49,7 @@ Quick">
 				<h1 class="site-name"><a href="/" title="Jack&#39;s Homepage">Jack&#39;s Homepage</a></h1>
 				<h2 class="blog-motto">Welcome</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -68,7 +65,7 @@ Quick">
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:ipingguo.cc">
 					</form>
 					
@@ -84,35 +81,53 @@ Quick">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/17/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/11/17/some-sets-in-mysql/" title="Mysql的几个常见设置" itemprop="url">Mysql的几个常见设置</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Jack" target="_blank" itemprop="author">Jack</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-17T08:45:23.098Z" itemprop="datePublished"> Published 2016-06-17</time>
+    <time datetime="2015-11-17T15:56:38.000Z" itemprop="datePublished"> 发表于 2015-11-17</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>最近忙着处理一个文本数据集，数据不算大，1600万多条论文数据，需要从txt文档中挑选出来合法(合乎我们的要求)的文本数据，剔除的思想不复杂，100行代码足以，用php实现了数据挑选，合法的数据26万条，并插入mysql数据库，并选择了wampserver集成的服务器，简单实用。很有兴致地完成了数据的插入，发现有些数据乱码了，尤其是涉及到作者的名字和发表期刊，带有声调的那种符号，悲剧啊！初期挑选的算法设计的不完善，可是花了近一天时间。由于后期要做推荐，必须使字符合法并不乱码。只有默默地重新做。在设置mysql过程中，发现了个大坑。不多说贴代码：  </p>
+<pre><code class="sql">mysql&gt; show variables like 'character%';
++--------------------------+-----------------------------------------------+
+| Variable_name            | Value                                         |
++--------------------------+-----------------------------------------------+
+| character_set_client     | utf8                                          |
+| character_set_connection | utf8                                          |
+| character_set_database   | utf8                                          |
+| character_set_filesystem | binary                                        |
+| character_set_results    | utf8                                          |
+| character_set_server     | lanti1                                        |
+| character_set_system     | utf8                                          |
+| character_sets_dir       | d:\wamp\bin\mysql\mysql5.6.17\share\charsets\ |
++--------------------------+-----------------------------------------------+
+8 rows in set
+</code></pre>
+<p>问题来了，character_set_server | lanti1，如果想改成万能的utf8，发现通过网上的各种方式都改变不了，后来google出来了，现在记录一下。对于不同版本的mysql有不同的修改方式，老版本是在my.ini中 找到mysqld项，追加default_character_set=utf8即可，但是在5.4版本的mysql中就发现不行，就得追加character-set-server=utf8就okay了。重启mysql，show。 </p>
+<pre><code class="sql">mysql&gt; show variables like 'character%';
++--------------------------+-----------------------------------------------+
+| Variable_name            | Value                                         |
++--------------------------+-----------------------------------------------+
+| character_set_client     | utf8                                          |
+| character_set_connection | utf8                                          |
+| character_set_database   | utf8                                          |
+| character_set_filesystem | binary                                        |
+| character_set_results    | utf8                                          |
+| character_set_server     | utf8                                          |
+| character_set_system     | utf8                                          |
+| character_sets_dir       | d:\wamp\bin\mysql\mysql5.6.17\share\charsets\ |
++--------------------------+-----------------------------------------------+
+8 rows in set
+</code></pre>
+<p>最好都设置utf8，包括字段的字符集和排序，不然后期会出现很多你臆想不到的问题。不知道为什么mysql不默认设置成utf8，如果建立数据库时不修改默认，mysql居然默认是lanti1。简直是一个大深坑。对于大数据的时代的到来，还是学学Nosql吧。</p>
+<p>一直没太关心mysql的转义字符的处理，结果处理完发现就悲剧了，mysql中入库时必须转义存储，否则插入不进去数据库，一旦入库了，取出来就不带有反斜杠\ 了，我在处理论文数据集需要拆分表，就忽略了这个问题，导致很多前期处理白费了，取出来后如果想再次入库，必须得再进行转义处理，不同的语言有不同的处理函数，mysql自带的也有，这里就不贴方法了，去google。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,13 +135,13 @@ Quick">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  <a class="article-category-link" href="/categories/Database/">Database</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  <span></span> <a href="/tags/mysql/">mysql</a>
   </div>
 
 </div>
@@ -135,7 +150,7 @@ Quick">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://ipingguo.cc/2016/06/17/hello-world/" data-title="Hello World | Jack&#39;s Homepage" data-tsina="null" class="share clearfix">
+	  <div data-url="http://ipingguo.cc/2015/11/17/some-sets-in-mysql/" data-title="Mysql的几个常见设置 | Jack&#39;s Homepage" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,39 +164,64 @@ Quick">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/06/17/how-to-use-jacman/" title="如何使用 Jacman 主题">
+ <a href="/2016/04/05/how-to-use-mathjax/" title="如何优雅的写数学公式（MathJax）">
   <strong>上一篇：</strong><br/>
   <span>
-  如何使用 Jacman 主题</span>
+  如何优雅的写数学公式（MathJax）</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/09/26/dream-on-the-go/"  title="梦想在路上">
+ <strong>下一篇：</strong><br/> 
+ <span>梦想在路上
+</span>
+</a>
+</div>
 
 </nav>
 
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
- 
-  </div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+			<li><a href="/categories/Database/" title="Database">Database<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jack/" title="Jack">Jack<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Math/" title="Math">Math<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Photo/" title="Photo">Photo<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/杂/" title="杂">杂<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/资源/" title="资源">资源<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -190,15 +230,63 @@ Quick">
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+				<li><a href="/tags/梦想/" title="梦想">梦想<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Jacman/" title="Jacman">Jacman<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/留学/" title="留学">留学<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/consectetur/" title="consectetur">consectetur<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jack/" title="Jack">Jack<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mathjs/" title="mathjs">mathjs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/出国/" title="出国">出国<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/技术/" title="技术">技术<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网站/" title="网站">网站<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -206,7 +294,7 @@ Quick">
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -219,7 +307,7 @@ Quick">
 </div>
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -324,8 +412,6 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
@@ -450,7 +536,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
