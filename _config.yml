@@ -82,9 +82,12 @@ sitemap:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
+  repo: https://git.coding.net/ipingguo/ipingguo.git
+  branch: coding-pages
+  message: '站点更新: {{ now("YYYY-MM-DD HH:mm:ss") }}'
+- type: git
   repo: git@github.com:ipingguo/home.git
   branch: gh-pages
   message: '站点更新: {{ now("YYYY-MM-DD HH:mm:ss") }}'
-
-
+  
