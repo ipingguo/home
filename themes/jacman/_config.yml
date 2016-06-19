@@ -17,6 +17,8 @@ widgets:
 - links
 - rss
   ## provide eight widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo
+  ## 自己添加的插件
+- duoshuo_visitor
 
 
 #### RSS 
